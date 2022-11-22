@@ -3,8 +3,10 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const { generateHTML } = require('./src/generateHTML');
-const { listenerCount } = require('process');
+const generateHTML = require('./src/generateHTML');
+const path = require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "renderedHtml.html");
 const teamMembers = [];
 
 
@@ -218,9 +220,11 @@ const internPrompt = () => {
 };
 
 const finishedTeam = () => {
-    console.log(' You have finished building your team.');
-    const html = generateHTML(teamMembers);
-    console.log(html);
+    console.log('You have finished building your team.');
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, generateHTML(teamMembers), 'utf-8'); 
 }
 
 managerPrompt();
