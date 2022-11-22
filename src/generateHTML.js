@@ -1,15 +1,10 @@
 
-
-
-
-
 const createTeam = (renderedHtml) => {
     console.log(renderedHtml);
 
     const html = [];
 
     const newManager = manager => {
-        console.log(manager);
 
         let managerCard = `
         
@@ -29,7 +24,6 @@ const createTeam = (renderedHtml) => {
         html.push(managerCard);
     }
     const newEngineer = engineer => {
-        console.log(engineer);
 
         let engineerCard = `
         
@@ -49,7 +43,6 @@ const createTeam = (renderedHtml) => {
         html.push(engineerCard);
     }
     const newIntern = intern => {
-        console.log(intern);
 
         let internCard = `
        

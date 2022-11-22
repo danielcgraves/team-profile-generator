@@ -68,7 +68,6 @@ const managerPrompt = () => {
     ]).then(answers => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         teamMembers.push(manager);
-        console.log(teamMembers);
         promptMenu();
     })
 };
@@ -214,7 +213,6 @@ const internPrompt = () => {
     ]).then(answers => {
         const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         teamMembers.push(intern);
-        console.log(teamMembers);
         promptMenu();
     })
 };
